@@ -65,6 +65,11 @@ jobs:
       with:
         fetch-depth: 0
 
+    
+    - name: Test
+      run: echo "123 ${GITHUB_REF##*/}" echo 123 ${GITHUB_REF##*/}
+      
+
     # Install the .NET Core workload
     - name: Install .NET Core
       uses: actions/setup-dotnet@v1
