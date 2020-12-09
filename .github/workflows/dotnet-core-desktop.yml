@@ -101,12 +101,8 @@ jobs:
 #    - name: Remove the pfx
 #      run: Remove-Item -path $env:Wap_Project_Directory\$env:Signing_Certificate
     - name: Test
-      run:    echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
-      env:
-        Appx_Bundle: Always
-        Appx_Bundle_Platforms: x86|x64
-        Appx_Package_Build_Mode: StoreUpload
-        Configuration: ${{ matrix.configuration }}
+      run: echo running on branch ${GITHUB_REF##*/}
+      
 
     #create release
     - name: Create a Release
@@ -115,7 +111,7 @@ jobs:
       env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
       with:
-          tag_name: ${{ github.ref }}
+          tag_name: ${GITHUB_REF##*/}
           release_name: Release ${{ github.ref }}
           draft: false
           prerelease: false
