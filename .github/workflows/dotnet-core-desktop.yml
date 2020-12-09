@@ -122,7 +122,9 @@ jobs:
 #        name: MSIX Package
 #        path: D:\a\TestCI\TestCI\bin\Release\netcoreapp3.1\
 
+    - uses: actions/checkout@v1
     - name: Zip Folder
+    
       run: zip -r release.zip D:\a\TestCI\TestCI\bin\Release\netcoreapp3.1\
       
       
