@@ -129,7 +129,7 @@ jobs:
     - name: Zip Folder
       uses: papeloto/action-zip@v1
       with:
-        files: D:\a\TestCI\TestCI\bin\Release\netcoreapp3.1\
+        files: D:\a\TestCI\TestCI\bin\Release\netcoreapp3.1
         dest: release.zip
             
     #Assert
