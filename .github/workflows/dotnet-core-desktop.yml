@@ -64,9 +64,10 @@ jobs:
           draft: false
           prerelease: false
  
+ 
     #Archive files       
     - name: 'Tar files'
-      run: tar -cvf release_${{ github.run_number }}.tar \bin\Release\netcoreapp3.1      
+      run: tar -cvf release_${{ github.run_number }}.tar $env:GITHUB_PATH\bin\Release\netcoreapp3.1      
       
     #Assert
     - name: Upload Release Asset
