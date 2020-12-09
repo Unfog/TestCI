@@ -1,8 +1,7 @@
-name: Pull Request
+name: PullRequest
 
 on:
   pull_request:
-
 
 jobs:
 
@@ -12,9 +11,7 @@ jobs:
       matrix:
         configuration: [Release]
 
-    runs-on: windows-latest  # For a list of available runner types, refer to
-                             # https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idruns-on
-
+    runs-on: windows-latest  
     env:
       Solution_Name: TestCI.sln                         # Replace with your solution name, i.e. MyWpfApp.sln.
       ACTIONS_ALLOW_UNSECURE_COMMANDS: 'true'
@@ -57,12 +54,5 @@ jobs:
     - name: Artifact
       uses: actions/upload-artifact@v2
       with:
-        name: my-artifact
+        name: debug_${{ github.run_number }}
         path: debug_${{ github.run_number }}.tar
-        retention-days: 5
-
-#    - uses: harupy/comment-on-pr@master
-#      env:
-#        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-#      with:
-#        filename: debug_${{ github.run_number }}.tar
