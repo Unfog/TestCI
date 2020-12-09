@@ -67,7 +67,7 @@ jobs:
 
     
     - name: Test
-      run: echo Release ${{ github.ref }}${{ github.run_number }}
+      run: echo Path ${{ github.workspace }}
       
     # Install the .NET Core workload
     - name: Install .NET Core
@@ -100,14 +100,6 @@ jobs:
         Appx_Bundle_Platforms: x86|x64
         Appx_Package_Build_Mode: StoreUpload
         Configuration: ${{ matrix.configuration }}
-
-    # Remove the pfx
-#    - name: Remove the pfx
-#      run: Remove-Item -path $env:Wap_Project_Directory\$env:Signing_Certificate
-    - name: Extract branch name
-      run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
-      id: extract_branch
-      
 
     #create release
     - name: Create a Release
