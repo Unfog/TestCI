@@ -126,8 +126,7 @@ jobs:
 #    - name: Zip Folder
 #      run: zip -r release.zip D:\a\TestCI\TestCI\bin\Release\netcoreapp3.1\
       
-#    - name: Zip Folder
-    - uses: actions/checkout@v1
+    - name: Zip Folder
     - uses: papeloto/action-zip@v1
       with:
         files: D:\a\TestCI\TestCI\bin\Release\netcoreapp3.1\
