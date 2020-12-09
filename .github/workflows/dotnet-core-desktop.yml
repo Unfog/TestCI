@@ -120,7 +120,7 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: MSIX Package
-        path: \bin\Release\netcoreapp3.1
+        path: D:\a\TestCI\TestCI\bin\Release\netcoreapp3.1\
       
       
     #Assert
