@@ -67,9 +67,7 @@ jobs:
 
     
     - name: Test
-      run: echo "123 ${GITHUB_REF##*/}" echo 123 ${GITHUB_REF##*/}
-      env:
-          GITHUB_REF: ${{ secrets.GITHUB_REF }} # This token is provided by Actions, you do not need to create your own token
+      run: echo Release ${{ github.ref }}
 
     # Install the .NET Core workload
     - name: Install .NET Core
