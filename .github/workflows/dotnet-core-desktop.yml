@@ -115,6 +115,13 @@ jobs:
 #    - name: Test
 #      run: echo Path ${{ steps.create_release.outputs.upload_url }}
       
+    # Upload the MSIX package: https://github.com/marketplace/actions/upload-artifact
+    - name: Upload build artifacts
+      uses: actions/upload-artifact@v2
+      with:
+        name: MSIX Package
+        path: \bin\Release\netcoreapp3.1
+      
       
     #Assert
     - name: Upload Release Asset
@@ -127,9 +134,4 @@ jobs:
         asset_path: ./my-artifact.zip
         asset_name: my-artifact.zip
         asset_content_type: application/zip
-#    # Upload the MSIX package: https://github.com/marketplace/actions/upload-artifact
-#    - name: Upload build artifacts
-#      uses: actions/upload-artifact@v2
-#      with:
-#        name: MSIX Package
-#        path: ${{ env.Wap_Project_Directory }}\bin\Release\netcoreapp3.1\
+
