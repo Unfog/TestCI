@@ -101,7 +101,7 @@ jobs:
 #    - name: Remove the pfx
 #      run: Remove-Item -path $env:Wap_Project_Directory\$env:Signing_Certificate
     - name: Test
-      run:    echo 'EOF' >> $GITHUB_WORKSPACE
+      run:    echo $GITHUB_WORKSPACE
       env:
         Appx_Bundle: Always
         Appx_Bundle_Platforms: x86|x64
