@@ -137,6 +137,9 @@ jobs:
 #        files: 'D:\a\TestCI\TestCI\bin\Release\netcoreapp3.1'
 #        dest: release.zip
             
+            
+    - name: 'Tar files'
+      run: tar -cvf release.tar D:\a\TestCI\TestCI\bin\Release\netcoreapp3.1      
     #Assert
     - name: Upload Release Asset
       id: upload-release-asset 
