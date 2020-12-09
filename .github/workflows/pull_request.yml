@@ -53,10 +53,16 @@ jobs:
     #Archive files       
     - name: 'Tar files'
       run: tar -cvf debug_${{ github.run_number }}.tar $env:GITHUB_WORKSPACE\bin\Release\netcoreapp3.1      
-      
-    #Comment with file
-    - uses: harupy/comment-on-pr@master
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    
+    - name: Artifact
+      uses: actions/upload-artifact@v2
       with:
-        filename: debug_${{ github.run_number }}.tar
+        name: my-artifact
+        path: debug_${{ github.run_number }}.tar
+        retention-days: 5
+
+#    - uses: harupy/comment-on-pr@master
+#      env:
+#        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#      with:
+#        filename: debug_${{ github.run_number }}.tar
