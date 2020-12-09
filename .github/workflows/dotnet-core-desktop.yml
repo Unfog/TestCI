@@ -126,8 +126,8 @@ jobs:
 #    - name: Zip Folder
 #      run: zip -r release.zip D:\a\TestCI\TestCI\bin\Release\netcoreapp3.1\
       
-    - name: Zip Folder
-      run: zip -r release.zip .
+#    - name: Zip Folder
+#      run: zip -r release.zip .
       
 #      uses: montudor/action-zip@v0.1.1
 #      with:
