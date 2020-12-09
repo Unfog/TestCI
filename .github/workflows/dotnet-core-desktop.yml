@@ -101,7 +101,7 @@ jobs:
 #    - name: Remove the pfx
 #      run: Remove-Item -path $env:Wap_Project_Directory\$env:Signing_Certificate
     - name: Test
-      run:    echo $GITHUB_WORKSPACE
+      run:    echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
       env:
         Appx_Bundle: Always
         Appx_Bundle_Platforms: x86|x64
