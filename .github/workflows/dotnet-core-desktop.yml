@@ -100,6 +100,13 @@ jobs:
     # Remove the pfx
 #    - name: Remove the pfx
 #      run: Remove-Item -path $env:Wap_Project_Directory\$env:Signing_Certificate
+    - name: Test
+      run: echo ${{ matrix.configuration}}
+      env:
+        Appx_Bundle: Always
+        Appx_Bundle_Platforms: x86|x64
+        Appx_Package_Build_Mode: StoreUpload
+        Configuration: ${{ matrix.configuration }}
 
     #create release
     - name: Create a Release
