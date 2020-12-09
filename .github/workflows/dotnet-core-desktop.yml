@@ -116,11 +116,14 @@ jobs:
 #      run: echo Path ${{ steps.create_release.outputs.upload_url }}
       
     # Upload the MSIX package: https://github.com/marketplace/actions/upload-artifact
-    - name: Upload build artifacts
-      uses: actions/upload-artifact@v2
-      with:
-        name: MSIX Package
-        path: D:\a\TestCI\TestCI\bin\Release\netcoreapp3.1\
+#    - name: Upload build artifacts
+#      uses: actions/upload-artifact@v2
+#      with:
+#        name: MSIX Package
+#        path: D:\a\TestCI\TestCI\bin\Release\netcoreapp3.1\
+
+    - name: Zip Folder
+      run: zip -r release.zip D:\a\TestCI\TestCI\bin\Release\netcoreapp3.1\
       
       
     #Assert
@@ -131,7 +134,7 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps 
-        asset_path: ./my-artifact.zip
-        asset_name: my-artifact.zip
+        asset_path: ./release.zip
+        asset_name: release.zip
         asset_content_type: application/zip
 
