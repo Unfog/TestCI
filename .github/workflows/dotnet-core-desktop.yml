@@ -127,9 +127,11 @@ jobs:
 #      run: zip -r release.zip D:\a\TestCI\TestCI\bin\Release\netcoreapp3.1\
       
     - name: Zip Folder
-      uses: montudor/action-zip@v0.1.1
-      with:
-        args: zip -qq -r release.zip D:\a\TestCI\TestCI\bin\Release\netcoreapp3.1
+      run: zip -r release.zip .
+      
+#      uses: montudor/action-zip@v0.1.1
+#      with:
+#        args: zip -qq -r release.zip D:\a\TestCI\TestCI\bin\Release\netcoreapp3.1
 #      uses: papeloto/action-zip@v1
 #      with:
 #        files: 'D:\a\TestCI\TestCI\bin\Release\netcoreapp3.1'
