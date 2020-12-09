@@ -112,8 +112,8 @@ jobs:
           draft: false
           prerelease: false
     
-    - name: Test
-      run: echo Path ${{ steps.create_release.outputs.upload_url }}
+#    - name: Test
+#      run: echo Path ${{ steps.create_release.outputs.upload_url }}
       
       
     #Assert
